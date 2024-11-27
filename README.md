@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-27T08:42:42+05:30
+Updated: 2024-11-27T08:43:16+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -101,8 +101,11 @@ docker compose up -d
 
 
 ##### Access DNS Server
+```
 http://your_ip_or_FQDN:8080
-### Reference
+```
+
+### Official Guide
 https://pi-hole.net/
 
 
