@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-27T08:41:57+05:30
+Updated: 2024-11-27T08:42:42+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -67,7 +67,9 @@ docker run -d \
 ```
 #### 2. Using Docker Compose
 ##### Create compose file
+```
 nano compose.yml
+```
 
 ```
 services:
@@ -93,7 +95,10 @@ services:
 ```
 
 ##### Run container
+```
 docker compose up -d
+```
+
 
 ##### Access DNS Server
 http://your_ip_or_FQDN:8080
