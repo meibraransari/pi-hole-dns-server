@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-27T08:40:45+05:30
+Updated: 2024-11-27T08:41:57+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -47,7 +47,7 @@ Pi-hole offers improved security, faster browsing, and a cleaner, ad-free experi
 
 ### Deployment Guide
 
-#### Using Docker run command
+#### 1. Using Docker run command
 
 ```
 docker run -d \
@@ -65,8 +65,8 @@ docker run -d \
     --restart=always \
     pihole/pihole:latest
 ```
-#### Using Docker Compose
-#### Create compose file
+#### 2. Using Docker Compose
+##### Create compose file
 nano compose.yml
 
 ```
@@ -92,10 +92,10 @@ services:
       - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/pihole/data/dnsmasq.d/custom-dns.conf:/etc/dnsmasq.d/custom-dns.conf
 ```
 
-#### Run container
+##### Run container
 docker compose up -d
 
-#### Access DNS Server
+##### Access DNS Server
 http://your_ip_or_FQDN:8080
 ### Reference
 https://pi-hole.net/
