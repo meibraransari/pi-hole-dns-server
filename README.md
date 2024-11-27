@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-27T08:40:03+05:30
+Updated: 2024-11-27T08:40:45+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -45,7 +45,7 @@ Pi-hole offers improved security, faster browsing, and a cleaner, ad-free experi
 - Minimal resources (256MB RAM, 2GB storage).
 - Pi-hole runs on devices like Raspberry Pi, Linux servers, or virtual machines.
 
-### **Deployment Guide
+### Deployment Guide
 
 #### Using Docker run command
 
