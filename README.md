@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-27T08:43:16+05:30
+Updated: 2024-11-27T08:47:30+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -18,6 +18,7 @@ Maintainer: Ibrar Ansari
 
 ### What is Pi-hole?
 Pi-hole is free and open-source software that works as a network-wide ad blocker, acting as a DNS sinkhole to block unwanted content. It improves privacy and speeds up browsing by preventing ads and trackers.
+Official Documentation: https://pi-hole.net/
 
 ### What are the benefits of Pi-hole?
 Here are the key benefits of Pi-hole:
@@ -104,9 +105,6 @@ docker compose up -d
 ```
 http://your_ip_or_FQDN:8080
 ```
-
-### Official Guide
-https://pi-hole.net/
 
 
 ---
