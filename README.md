@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-27T08:29:13+05:30
+Updated: 2024-11-27T08:40:03+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -38,9 +38,65 @@ Anyone with a home or business network can use Pi-hole, particularly those looki
 ### **Why it must be in everyone's system or server**  
 Pi-hole offers improved security, faster browsing, and a cleaner, ad-free experience for all devices connected to the network.
 
-### **System Requirements**  
-Pi-hole runs on devices like Raspberry Pi, Linux servers, or virtual machines with minimal resources (256MB RAM, 2GB storage).
+### **Prerequisites**  
+- Basic understanding of Docker.
+- Docker must be installed on your system.
+- Basic knowledge of command-line operations.
+- Minimal resources (256MB RAM, 2GB storage).
+- Pi-hole runs on devices like Raspberry Pi, Linux servers, or virtual machines.
 
+### **Deployment Guide
+
+#### Using Docker run command
+
+```
+docker run -d \
+    --name c-pihole \
+    -p 53:53/tcp -p 53:53/udp \
+    -p 67:67/udp \
+    -p 8080:80 \
+    -v "$(pwd)/pihole/data/pihole:/etc/pihole" \
+    -v "$(pwd)/pihole/data/dnsmasq.d/custom-dns.conf:/etc/dnsmasq.d/custom-dns.conf" \
+    -e ServerIP="$(ip route get 8.8.8.8 | awk '{for(i=1;i<=NF;i++) if ($i=="src") print $(i+1)}')" \
+    -e DNS1=8.8.8.8 \
+    -e DNS2=4.2.2.2 \
+    -e TZ=Asia/Kolkata \
+    -e WEBPASSWORD=Secure_Password \
+    --restart=always \
+    pihole/pihole:latest
+```
+#### Using Docker Compose
+#### Create compose file
+nano compose.yml
+
+```
+services:
+  pihole:
+    container_name: pihole
+    hostname: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
+    cap_add:
+      - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
+    ports:
+      - "53:53/tcp" # DNS TCP
+      - "53:53/udp" # DNS UDP
+      - "67:67/udp" # DNS UDP
+      - "8080:80/tcp" # WEB ADMIN GUI
+      #- "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
+    environment:
+      - WEBPASSWORD=Secure_Password
+    volumes:
+      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/pihole/data/pihole:/etc/pihole
+      - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/pihole/data/dnsmasq.d/custom-dns.conf:/etc/dnsmasq.d/custom-dns.conf
+```
+
+#### Run container
+docker compose up -d
+
+#### Access DNS Server
+http://your_ip_or_FQDN:8080
 ### Reference
 https://pi-hole.net/
 
