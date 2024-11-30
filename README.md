@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-27T08:47:52+05:30
+Updated: 2024-11-30T09:29:41+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -63,7 +63,7 @@ docker run -d \
     -e DNS1=8.8.8.8 \
     -e DNS2=4.2.2.2 \
     -e TZ=Asia/Kolkata \
-    -e WEBPASSWORD=Secure_Password \
+    -e WEBPASSWORD=password \
     --restart=always \
     pihole/pihole:latest
 ```
@@ -90,7 +90,7 @@ services:
       - "8080:80/tcp" # WEB ADMIN GUI
       #- "67:67/udp" # Only required if you are using Pi-hole as your DHCP server
     environment:
-      - WEBPASSWORD=Secure_Password
+      - WEBPASSWORD=password
     volumes:
       - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/pihole/data/pihole:/etc/pihole
       - ${DOCKER_VOLUME_STORAGE:-/mnt/docker-volumes}/pihole/data/dnsmasq.d/custom-dns.conf:/etc/dnsmasq.d/custom-dns.conf
