@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-30T09:29:41+05:30
+Updated: 2024-11-30T09:33:21+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -49,6 +49,11 @@ Pi-hole offers improved security, faster browsing, and a cleaner, ad-free experi
 
 ### Deployment Guide
 
+#### Disable System DNS
+```
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+```
 #### 1. Using Docker run command
 
 ```
