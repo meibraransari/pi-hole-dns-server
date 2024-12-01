@@ -1,6 +1,6 @@
 ---
 Created: 2024-11-27T08:20:58+05:30
-Updated: 2024-11-30T09:33:21+05:30
+Updated: 2024-12-01T09:55:39+05:30
 Maintainer: Ibrar Ansari
 ---
 # Beginner's guide to building a Pi-Hole DNS Server
@@ -21,6 +21,9 @@ Pi-hole is free and open-source software that works as a network-wide ad blocker
 
 Official Documentation: https://pi-hole.net/
 
+
+## 🎬 Video Demonstration
+[![Watch on Youtube](https://i.ytimg.com/vi/FYuOSGJk7j0/maxresdefault.jpg)](https://youtu.be/FYuOSGJk7j0)
 ### What are the benefits of Pi-hole?
 Here are the key benefits of Pi-hole:
 - **DNS Server** Use Pi-hole as your DNS server.
